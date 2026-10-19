@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nasir Designer | ডিজাইন শপ</title>
+<style>
+:root{--green:#00a878;--dark:#101a1c;--muted:#687477;--bg:#f5f8f7}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;color:#172326;background:var(--bg)}
+header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px max(5%,calc((100% - 1180px)/2));background:white;position:sticky;top:0;border-bottom:1px solid #e5ece9;z-index:2}
+.brand{font-size:21px;font-weight:800}.brand span{color:var(--green)}nav{display:flex;gap:18px;align-items:center}a{color:inherit;text-decoration:none}button,.btn{border:0;background:var(--green);color:white;padding:11px 15px;border-radius:9px;font-weight:700;cursor:pointer}
+.hero{max-width:1180px;margin:22px auto;padding:42px 28px;border-radius:18px;color:white;background:linear-gradient(120deg,#0c1b1d,#173e37);display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}
+.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:0 0 14px}.hero h1 span{color:#37e0ae}.hero p{color:#d6e7e2;line-height:1.7;max-width:520px}.hero-art{font-size:70px;text-align:center;background:#ffffff12;border:1px solid #ffffff22;border-radius:16px;padding:38px 10px}
+main{max-width:1180px;margin:0 auto;padding:0 14px 50px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:28px 0 16px}.section-head h2{margin:0}.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.filters button{background:white;color:#253638;border:1px solid #dce6e2}.filters button.active{background:var(--green);color:white;border-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.product{background:white;border:1px solid #e3ebe7;border-radius:14px;overflow:hidden;box-shadow:0 4px 15px #102a2010}.art{height:180px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:white;font-weight:800;font-size:25px;background:linear-gradient(135deg,#18282b,#405f56)}.art.pink{background:linear-gradient(135deg,#431b37,#e35e85)}.art.orange{background:linear-gradient(135deg,#713c13,#f5a33c)}.art.blue{background:linear-gradient(135deg,#101d42,#2684b7)}.art.purple{background:linear-gradient(135deg,#281744,#8665bb)}.art.teal{background:linear-gradient(135deg,#063b3b,#1cb8a1)}.details{padding:15px}.details h3{font-size:17px;margin:0 0 7px}.details p{color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 12px}.price-row{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{font-weight:800;color:#00885f;font-size:18px}.small{font-size:12px;color:var(--muted)}.buy{padding:9px 12px}.notice{margin-top:25px;background:#e7f7f1;border:1px solid #c7ecdf;border-radius:12px;padding:17px;line-height:1.65}.checkout{display:none;margin-top:25px;background:white;border:1px solid #dce8e2;border-radius:14px;padding:20px}.checkout.open{display:block}.checkout label{display:block;font-weight:700;margin:12px 0 6px}.checkout input,.checkout select,.checkout textarea{width:100%;padding:11px;border:1px solid #cddbd5;border-radius:8px;font:inherit}.footer{text-align:center;padding:25px;background:#102426;color:#d9e8e3;font-size:13px}.empty{padding:25px;text-align:center;color:var(--muted);display:none}
+@media(max-width:760px){header{padding:14px;flex-wrap:wrap}nav{gap:10px;font-size:13px}.hero{margin:14px;padding:26px 20px;grid-template-columns:1fr}.hero-art{font-size:45px;padding:22px}.grid{grid-template-columns:repeat(2,1fr)}.art{height:145px;font-size:20px}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.hero h1{font-size:31px}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="#">Nasir <span>Designer</span></a>
+  <nav><a href="#shop">ডিজাইন দেখুন</a><a href="#payment">পেমেন্ট</a><button onclick="showCheckout()">অর্ডার (<span id="count">0</span>)</button></nav>
+</header>
+<section class="hero">
+ <div><h1>তোমার পরের প্রজেক্টের জন্য<br><span>Creative Designs</span></h1><p>Logo, T-shirt, poster, banner, business card এবং YouTube thumbnail ডিজাইন খুঁজে নাও। পছন্দের ডিজাইন অর্ডার করতে নিচে দেখো।</p><a class="btn" href="#shop">ডিজাইন দেখুন ↓</a></div>
+ <div class="hero-art">✦<br>CREATE<br><span style="color:#37e0ae">SOMETHING</span><br>GREAT</div>
+</section>
+<main>
+ <div class="section-head" id="shop"><h2>🛍️ ডিজাইন শপ</h2><span class="small">নমুনা ডিজাইন — নিজের ডিজাইন দিয়ে বদলে নাও</span></div>
+ <div class="filters">
+  <button class="active" onclick="filterProducts('সব',this)">সব</button><button onclick="filterProducts('T-shirt',this)">T-shirt</button><button onclick="filterProducts('Logo',this)">Logo</button><button onclick="filterProducts('Poster',this)">Poster</button><button onclick="filterProducts('Thumbnail',this)">YouTube Thumbnail</button><button onclick="filterProducts('Business Card',this)">Business Card</button>
+ </div>
+ <div class="grid" id="products">
+  <article class="product" data-category="T-shirt"><div class="art">DREAM<br>CREATE<br>ACHIEVE</div><div class="details"><h3>Motivational T-shirt Design</h3><p>ডিজিটাল ডিজাইন ফাইল • নিজের ডিজাইন দিয়ে বদলাও</p><div class="price-row"><span class="price">৳৩০০</span><button class="buy" onclick="add('Motivational T-shirt Design',300)">অর্ডার</button></div></div></article>
+  <article class="product" data-category="Logo"><div class="art pink">YOUR<br>BRAND</div><div class="details"><h3>Minimal Logo Design</h3><p>পরিষ্কার ও আধুনিক ব্র্যান্ড লোগো</p><div class="price-row"><span class="price">৳৫০০</span><button class="buy" onclick="add('Minimal Logo Design',500)">অর্ডার</button></div></div></article>
+  <article class="product" data-category="Poster"><div class="art orange">DELICIOUS<br>PIZZA</div><div class="details"><h3>Food Poster Design</h3><p>রেস্টুরেন্ট ও ফুড বিজনেসের জন্য</p><div class="price-row"><span class="price">৳২৫০</span><button class="buy" onclick="add('Food Poster Design',250)">অর্ডার</button></div></div></article>
+  <article class="product" data-category="Thumbnail"><div class="art blue">HOW TO<br>MAKE<br>THUMBNAILS</div><div class="details"><h3>YouTube Thumbnail</h3><p>ভিডিওর জন্য নজরকাড়া থাম্বনেইল</p><div class="price-row"><span class="price">৳২০০</span><button class="buy" onclick="add('YouTube Thumbnail',200)">অর্ডার</button></div></div></article>
+  <article class="product" data-category="Business Card"><div class="art purple">YOUR NAME<br><span style="font-size:16px">BUSINESS CARD</span></div><div class="details"><h3>Business Card Design</h3><p>প্রফেশনাল ভিজিটিং কার্ড ডিজাইন</p><div class="price-row"><span class="price">৳২৫০</span><button class="buy" onclick="add('Business Card Design',250)">অর্ডার</button></div></div></article>
+  <article class="product" data-category="Poster"><div class="art teal">SOCIAL<br>MEDIA<br>POST</div><div class="details"><h3>Social Media Post</h3><p>Facebook ও Instagram পোস্ট ডিজাইন</p><div class="price-row"><span class="price">৳১৫০</span><button class="buy" onclick="add('Social Media Post',150)">অর্ডার</button></div></div></article>
+ </div>
+ <div class="empty" id="empty">এই ক্যাটাগরিতে এখন কোনো ডিজাইন নেই।</div>
+ <section class="checkout" id="checkout">
+  <h2>অর্ডারের তথ্য</h2><p>তোমার পছন্দের ডিজাইন ও যোগাযোগের তথ্য দাও। এটি এখন একটি ডেমো অর্ডার ফর্ম; অর্ডার নিজে থেকে সার্ভারে জমা হয় না।</p>
+  <div id="cartItems">এখনও কোনো ডিজাইন বেছে নেওয়া হয়নি।</div>
+  <label for="customer">তোমার নাম</label><input id="customer" placeholder="নাম লিখো">
+  <label for="contact">যোগাযোগের নম্বর / ইমেইল</label><input id="contact" placeholder="যে মাধ্যমে যোগাযোগ করা যাবে">
+  <label for="method">পেমেন্ট পদ্ধতি</label><select id="method"><option>bKash</option><option>Nagad</option></select>
+  <label for="trx">Transaction ID (পেমেন্ট করার পর)</label><input id="trx" placeholder="পেমেন্টের পর Transaction ID লিখবে">
+  <label for="notes">অতিরিক্ত তথ্য</label><textarea id="notes" rows="3" placeholder="কোনো নির্দেশনা থাকলে লিখো"></textarea>
+  <p class="small">পেমেন্ট নম্বর এখনো যোগ করা হয়নি। নম্বর ও অর্ডার গ্রহণের ব্যবস্থা মালিকের তথ্য দিয়ে সেটআপ করতে হবে।</p>
+  <button onclick="makeOrder()">অর্ডারের সারাংশ তৈরি করো</button>
+  <pre id="summary" style="white-space:pre-wrap;line-height:1.6"></pre>
+  <button style="background:#243638" onclick="copySummary()">সারাংশ কপি করো</button>
+ </section>
+ <section class="notice" id="payment"><strong>💳 পেমেন্ট সম্পর্কে</strong><br>এখন bKash/Nagad পেমেন্টের জায়গা প্রস্তুত রাখা হয়েছে। আসল পেমেন্ট নেওয়ার আগে তোমার পেমেন্ট নম্বর, পেমেন্ট নির্দেশনা এবং অর্ডার যাচাইয়ের পদ্ধতি যোগ করতে হবে। এই ডেমোতে টাকা নেওয়া বা অটোমেটিক ডাউনলোড চালু নেই।</section>
+</main>
+<footer class="footer">© <span id="year"></span> Nasir Designer • Original digital designs</footer>
+<script>
+let cart=[];
+function add(name,price){const old=cart.find(x=>x.name===name);if(old)old.qty++;else cart.push({name,price,qty:1});document.getElementById('count').textContent=cart.reduce((s,x)=>s+x.qty,0);renderCart();showCheckout();}
+function showCheckout(){document.getElementById('checkout').classList.add('open');document.getElementById('checkout').scrollIntoView({behavior:'smooth',block:'start'});renderCart();}
+function renderCart(){const el=document.getElementById('cartItems');if(!cart.length){el.textContent='এখনও কোনো ডিজাইন বেছে নেওয়া হয়নি।';return}el.innerHTML=cart.map(x=>`${x.name} × ${x.qty} — ৳${x.price*x.qty}`).join('<br>')+`<hr><strong>মোট: ৳${cart.reduce((s,x)=>s+x.price*x.qty,0)}</strong>`;}
+function filterProducts(cat,btn){document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');let visible=0;document.querySelectorAll('.product').forEach(p=>{let show=cat==='সব'||p.dataset.category===cat;p.style.display=show?'':'none';if(show)visible++});document.getElementById('empty').style.display=visible?'none':'block'}
+function makeOrder(){const name=document.getElementById('customer').value.trim(),contact=document.getElementById('contact').value.trim();if(!cart.length){alert('আগে একটি ডিজাইন বেছে নাও।');return}if(!name||!contact){alert('নাম ও যোগাযোগের তথ্য লিখো।');return}const total=cart.reduce((s,x)=>s+x.price*x.qty,0);const txt=`Nasir Designer — অর্ডারের সারাংশ\nনাম: ${name}\nযোগাযোগ: ${contact}\nডিজাইন:\n${cart.map(x=>`- ${x.name} × ${x.qty}: ৳${x.price*x.qty}`).join('\n')}\nমোট: ৳${total}\nপেমেন্ট: ${document.getElementById('method').value}\nTransaction ID: ${document.getElementById('trx').value||'এখনও দেওয়া হয়নি'}\nঅতিরিক্ত তথ্য: ${document.getElementById('notes').value||'নেই'}\n\nনোট: এটি ডেমো সারাংশ, পেমেন্ট বা অর্ডার স্বয়ংক্রিয়ভাবে জমা হয়নি।`;document.getElementById('summary').textContent=txt}
+function copySummary(){const t=document.getElementById('summary').textContent;if(!t){alert('আগে অর্ডারের সারাংশ তৈরি করো।');return}if(navigator.clipboard)navigator.clipboard.writeText(t).then(()=>alert('সারাংশ কপি হয়েছে।')).catch(()=>alert(t));else alert(t)}
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
